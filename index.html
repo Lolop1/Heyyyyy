@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div><h1>Will you be my valentine?</h1></div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
+        <div class="buttons">
+            <div class="btn" id="yesButton" onclick="nextPage()">Yes</div>
+            <div class="btn" id="noButton" onmouseover="moveButton()">No</div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to a new page when "Yes" is clicked
+        function nextPage() {
+            window.location.href = "yes.html"; // Redirect to the "yes.html" page
+        }
+    
+        // Function to move the "No" button when hovered
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var buttonWidth = button.offsetWidth;
+            var buttonHeight = button.offsetHeight;
+    
+            // Get the available window size minus the button size, so it won't go off-screen
+            var availableWidth = window.innerWidth - buttonWidth;
+            var availableHeight = window.innerHeight - buttonHeight;
+    
+            // Generate random positions for the "No" button
+            var x = Math.random() * availableWidth;  // Random X position within bounds
+            var y = Math.random() * availableHeight; // Random Y position within bounds
+    
+            // Apply the new random position to the "No" button
+            button.style.position = "absolute"; // Set position to absolute for movement
+            button.style.left = `${x}px`;  // Use template literals for cleaner code
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
